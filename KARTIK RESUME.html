@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kartik Agrahari | Professional Resume</title>
+
+    <style>
+
+        /* =========================
+           1. GLOBAL SETTINGS
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #e94e1b;
+            --burgundy: #40180f;
+            --blush: #f2e9e7;
+            --white: #ffffff;
+            --dark: #291711;
+            --grey: #766d69;
+            --border: #e9c9bf;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ded4d1;
+            color: var(--dark);
+            line-height: 1.5;
+            padding: 30px 15px;
+        }
+
+        /* =========================
+           2. MAIN RESUME
+        ========================== */
+
+        .resume {
+            max-width: 1050px;
+            margin: auto;
+            background: var(--blush);
+            display: grid;
+            grid-template-columns: 36% 64%;
+            box-shadow: 0 12px 35px rgba(64, 24, 15, 0.18);
+            overflow: hidden;
+        }
+
+        /* =========================
+           3. LEFT SIDEBAR
+        ========================== */
+
+        .sidebar {
+            background: var(--burgundy);
+            color: var(--white);
+            padding: 35px 28px;
+        }
+
+        .profile-container {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-container img {
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--orange);
+            display: block;
+            margin: auto auto 15px;
+        }
+
+        .upload-btn {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            padding: 9px 15px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .upload-btn:hover {
+            background: white;
+            color: var(--burgundy);
+        }
+
+        #photoUpload {
+            display: none;
+        }
+
+        .sidebar h1 {
+            font-size: 29px;
+            line-height: 1.2;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .role {
+            text-align: center;
+            color: #f6b5a1;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .side-section {
+            margin-top: 28px;
+        }
+
+        .side-heading {
+            color: #ff805a;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid #805347;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            font-size: 12px;
+            margin-bottom: 13px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-label {
+            display: block;
+            color: #f6a78e;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* SKILLS */
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            font-size: 12px;
+            margin: 13px 0;
+        }
+
+        .skill-bar {
+            height: 5px;
+            background: #775148;
+            margin-top: 6px;
+            border-radius: 10px;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: var(--orange);
+            border-radius: 10px;
+        }
+
+        /* LANGUAGES */
+
+        .language-list {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .language {
+            border: 1px solid #a66a5a;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+        }
+
+        /* HOBBIES */
+
+        .hobby-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .hobby-list li {
+            background: #603126;
+            padding: 7px 10px;
+            font-size: 11px;
+            border-radius: 4px;
+        }
+
+        /* =========================
+           4. RIGHT MAIN CONTENT
+        ========================== */
+
+        .main-content {
+            background: var(--blush);
+            padding: 35px 32px;
+        }
+
+        .top-header {
+            background: var(--orange);
+            color: white;
+            padding: 20px;
+            margin: -35px -32px 25px;
+        }
+
+        .top-header p {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .top-header h2 {
+            font-size: 27px;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        /* SECTION HEADINGS */
+
+        .section {
+            margin-bottom: 27px;
+        }
+
+        .section-heading {
+            color: var(--burgundy);
+            font-size: 17px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--orange);
+            padding-bottom: 7px;
+            margin-bottom: 16px;
+        }
+
+        .summary {
+            font-size: 12px;
+            color: var(--grey);
+            text-align: justify;
+        }
+
+        /* EDUCATION AND EXPERIENCE */
+
+        .entry {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 13px;
+            margin-bottom: 12px;
+            background: rgba(255,255,255,0.45);
+            transition: 0.3s;
+        }
+
+        .entry:hover {
+            border-color: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        .entry-title {
+            color: var(--burgundy);
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .entry-meta {
+            color: var(--orange);
+            font-size: 11px;
+            font-weight: bold;
+            margin: 4px 0;
+        }
+
+        .entry p {
+            color: var(--grey);
+            font-size: 11px;
+        }
+
+        /* ACHIEVEMENTS */
+
+        .achievement {
+            border-left: 4px solid var(--orange);
+            padding: 10px 13px;
+            background: rgba(255,255,255,0.45);
+            margin-bottom: 12px;
+        }
+
+        .achievement h3 {
+            color: var(--burgundy);
+            font-size: 12px;
+        }
+
+        .achievement p {
+            color: var(--grey);
+            font-size: 11px;
+        }
+
+        /* REFERENCES */
+
+        .reference-box {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .reference-box p {
+            color: var(--grey);
+            font-size: 11px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: var(--burgundy);
+            color: white;
+            padding: 13px;
+            text-align: center;
+            font-size: 10px;
+            letter-spacing: 2px;
+            margin: 25px -32px -35px;
+        }
+
+        /* =========================
+           5. RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 760px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .resume {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar,
+            .main-content {
+                padding: 25px;
+            }
+
+            .top-header {
+                margin: -25px -25px 25px;
+            }
+
+            .footer {
+                margin: 25px -25px -25px;
+            }
+        }
+
+        /* =========================
+           6. PRINT SETTINGS
+        ========================== */
+
+        @media print {
+
+            @page {
+                size: A4;
+                margin: 8mm;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .resume {
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .upload-btn {
+                display: none;
+            }
+
+            .entry:hover {
+                transform: none;
+            }
+
+            .section,
+            .entry,
+            .achievement {
+                break-inside: avoid;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <main class="resume">
+
+        <!-- =====================
+             LEFT SIDEBAR
+        ====================== -->
+
+        <aside class="sidebar">
+
+            <!-- PROFILE PHOTO -->
+
+            <div class="profile-container">
+
+                <img id="profilePic"
+                     src="WhatsApp Image 2026-11-17 at 20.30.51.jpeg"
+                     alt="Kartik Agrahari Profile Picture">
+
+                <label for="photoUpload" class="upload-btn">
+                    Choose Profile Photo
+                </label>
+
+                <input type="file"
+                       id="photoUpload"
+                       accept="image/*">
+
+            </div>
+
+            <h1>Kartik<br>Agrahari</h1>
+
+            <p class="role">
+                COMMERCE STUDENT
+            </p>
+
+            <!-- CONTACT -->
+
+            <section class="side-section">
+
+                <h2 class="side-heading">Contact</h2>
+
+                <p class="contact-item">
+                    <span class="contact-label">Email</span>
+                    kartikagrahari48@gmail.com
+                </p>
+
+                <p class="contact-item">
+                    <span class="contact-label">Phone</span>
+                    +91-9519455232
+                </p>
+
+                <p class="contact-item">
+                    <span class="contact-label">Location</span>
+                    Varanasi, Uttar Pradesh
+                </p>
+
+                <p class="contact-item">
+                    <span class="contact-label">LinkedIn</span>
+                    Kartik Agrahari
+                </p>
+
+            </section>
+
+            <!-- SKILLS -->
+
+            <section class="side-section">
+
+                <h2 class="side-heading">Skills</h2>
+
+                <ul class="skill-list">
+
+                    <li>
+                        Video Editing
+                        <div class="skill-bar">
+                            <div class="skill-level"
+                                 style="width:90%"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        Graphic Design
+                        <div class="skill-bar">
+                            <div class="skill-level"
+                                 style="width:85%"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        Content Creation
+                        <div class="skill-bar">
+                            <div class="skill-level"
+                                 style="width:80%"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        Communication
+                        <div class="skill-bar">
+                            <div class="skill-level"
+                                 style="width:75%"></div>
+                        </div>
+                    </li>
+
+                    <li>
+                        Business Awareness
+                        <div class="skill-bar">
+                            <div class="skill-level"
+                                 style="width:80%"></div>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <!-- LANGUAGES -->
+
+            <section class="side-section">
+
+                <h2 class="side-heading">Languages</h2>
+
+                <div class="language-list">
+                    <span class="language">English</span>
+                    <span class="language">Hindi</span>
+                </div>
+
+            </section>
+
+            <!-- HOBBIES -->
+
+            <section class="side-section">
+
+                <h2 class="side-heading">Hobbies</h2>
+
+                <ul class="hobby-list">
+                    <li>Design</li>
+                    <li>Finance</li>
+                    <li>Reading</li>
+                    <li>Video Editing</li>
+                    <li>Entrepreneurship</li>
+                    <li>Public Speaking</li>
+                </ul>
+
+            </section>
+
+        </aside>
+
+        <!-- =====================
+             RIGHT MAIN CONTENT
+        ====================== -->
+
+        <div class="main-content">
+
+            <!-- HEADER -->
+
+            <header class="top-header">
+
+                <p>Personal Portfolio & Resume</p>
+
+                <h2>Kartik Agrahari</h2>
+
+            </header>
+
+            <!-- PROFILE -->
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Profile
+                </h2>
+
+                <p class="summary">
+                    Commerce student pursuing undergraduate
+                    studies at DAV PG College, Banaras Hindu
+                    University, and the BBA in Digital Business
+                    and Entrepreneurship programme at IIM
+                    Bangalore. Interested in finance, business
+                    strategy, entrepreneurship and digital media.
+                    Enjoys creative work, collaborative projects
+                    and gaining practical business experience.
+                    A motivated learner focused on developing
+                    professional and leadership skills.
+                </p>
+
+            </section>
+
+            <!-- EDUCATION -->
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Educational Qualifications
+                </h2>
+
+                <article class="entry">
+
+                    <h3 class="entry-title">
+                        Bachelor of Business Administration
+                        (Digital Business and Entrepreneurship)
+                    </h3>
+
+                    <p class="entry-meta">
+                        Indian Institute of Management Bangalore
+                        (IIM Bangalore) | Pursuing
+                    </p>
+
+                    <p>
+                        Undergraduate programme focused on
+                        digital business and entrepreneurship.
+                    </p>
+
+                </article>
+
+                <article class="entry">
+
+                    <h3 class="entry-title">
+                        Bachelor of Commerce (Honours)
+                    </h3>
+
+                    <p class="entry-meta">
+                        DAV PG College, Banaras Hindu University
+                        | 2026 – Present
+                    </p>
+
+                    <p>
+                        Pursuing undergraduate studies in Commerce.
+                    </p>
+
+                </article>
+
+                <article class="entry">
+
+                    <h3 class="entry-title">
+                        Class XII – Commerce
+                    </h3>
+
+                    <p class="entry-meta">
+                        Sunbeam English School, Bhagwanpur | 2026
+                    </p>
+
+                    <p>
+                        Completed higher secondary education
+                        in the Commerce stream.
+                    </p>
+
+                </article>
+
+            </section>
+
+            <!-- EXPERIENCE -->
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Business Experience
+                </h2>
+
+                <article class="entry">
+
+                    <h3 class="entry-title">
+                        Nice Bearings – Wholesale & Retail Business
+                    </h3>
+
+                    <p class="entry-meta">
+                        Varanasi, Uttar Pradesh
+                    </p>
+
+                    <p>
+                        Gained practical exposure to a family-run
+                        bearing and auto-parts business, including
+                        wholesale and retail operations and
+                        business activities.
+                    </p>
+
+                </article>
+
+            </section>
+
+            <!-- ACHIEVEMENTS -->
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Achievements & Activities
+                </h2>
+
+                <div class="achievement">
+
+                    <h3>
+                        Under Secretary-General – Content Creation
+                    </h3>
+
+                    <p>
+                        The ENNEAD Model United Nations | 2025
+                    </p>
+
+                    <p>
+                        Served in the content creation team and
+                        contributed to conference activities.
+                    </p>
+
+                </div>
+
+                <div class="achievement">
+
+                    <h3>
+                        1st Runner-Up – Idea-Genesis
+                    </h3>
+
+                    <p>
+                        School Commerce Fest | 2024–25
+                    </p>
+
+                    <p>
+                        Secured first runner-up position as part
+                        of a team in a case-based business competition.
+                    </p>
+
+                </div>
+
+                <div class="achievement">
+
+                    <h3>
+                        Model United Nations Participant
+                    </h3>
+
+                    <p>
+                        Participated in academic discussions,
+                        research and committee activities.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- PERSONAL STRENGTHS -->
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    Personal Strengths
+                </h2>
+
+                <article class="entry">
+
+                    <p>
+                        Creative thinking, teamwork, willingness
+                        to learn, business awareness, adaptability
+                        and interest in leadership and communication.
+                    </p>
+
+                </article>
+
+            </section>
+
+            <!-- REFERENCES -->
+
+            <section class="section">
+
+                <h2 class="section-heading">
+                    References
+                </h2>
+
+                <div class="reference-box">
+
+                    <p>
+                        References available upon request.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+
+            <footer class="footer">
+
+                KARTIK AGRAHARI | PERSONAL RESUME
+
+            </footer>
+
+        </div>
+
+    </main>
+
+    <!-- =====================
+         JAVASCRIPT
+         PROFILE PHOTO UPLOAD
+    ====================== -->
+
+    <script>
+
+        const photoUpload =
+            document.getElementById("photoUpload");
+
+        const profilePic =
+            document.getElementById("profilePic");
+
+        let currentImageURL = null;
+
+        photoUpload.addEventListener("change", function() {
+
+            const file = this.files[0];
+
+            if (file && file.type.startsWith("image/")) {
+
+                const newImageURL =
+                    URL.createObjectURL(file);
+
+                profilePic.src = newImageURL;
+
+                if (currentImageURL) {
+                    URL.revokeObjectURL(currentImageURL);
+                }
+
+                currentImageURL = newImageURL;
+
+            } else if (file) {
+
+                alert("Please select a valid image file.");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
